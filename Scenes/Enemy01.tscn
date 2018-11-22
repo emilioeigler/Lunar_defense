@@ -1,4 +1,52 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Script/Enemy01.gd" type="Script" id=1]
+[ext_resource path="res://Art/ball.png" type="Texture" id=2]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -0.576279, -0.538065, 0, 0, 0, 0, 0.321167, 0.179895 )
+}
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 20.2644
 
 [node name="Enemy01" type="Node2D"]
+script = ExtResource( 1 )
+speed = 1
+
+[node name="Path2D" type="Path2D" parent="."]
+self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( -0.576279, -0.538065 )
+rotation = 0.674744
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Path2D/PathFollow2D"]
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+motion/sync_to_physics = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/KinematicBody2D"]
+position = Vector2( 0.786125, 0.0601577 )
+rotation = -0.674744
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Path2D/PathFollow2D"]
+scale = Vector2( 0.16353, 0.16353 )
+texture = ExtResource( 2 )
 

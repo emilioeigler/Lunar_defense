@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Level01.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Enemy01.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Art/background01.png" type="Texture" id=3]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( -82.9037, -97.9771, 82.9037, 97.9771, -18.4669, 121.151, -51.2495, 9.04404, 51.2495, -9.04404, 322.192, 188.982, -87.4257, 30.1468, 87.4257, -30.1468, 524.175, 103.063, -73.8596, -16.5807, 73.8596, 16.5807, 711.086, 77.4386, -21.1028, -76.8743, 21.1028, 76.8743, 926.635, 208.577, 40.6982, -94.9624, -40.6982, 94.9624, 937.187, 436.185, 79.889, 79.889, -79.889, -79.889, 706.563, 428.649, 90.4404, -63.3083, -90.4404, 63.3083, 433.735, 401.517, 79.889, 70.845, -79.889, -70.845, -0.378815, 434.678 )
+}
+
+[node name="Level01" type="Node2D"]
+script = ExtResource( 1 )
+Enemy_01 = ExtResource( 2 )
+
+[node name="background01" type="Sprite" parent="."]
+position = Vector2( 513.121, 303.547 )
+scale = Vector2( 0.535669, 0.55845 )
+texture = ExtResource( 3 )
+
+[node name="Path2D" type="Path2D" parent="."]
+self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+position = Vector2( 16.5807, 3.01471 )
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( -18.4669, 121.151 )
+rotation = 0.854107
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
