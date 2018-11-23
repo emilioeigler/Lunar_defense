@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Script/Enemy01.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/KinematicBody2D.gd" type="Script" id=2]
+[ext_resource path="res://Script/KinematicBody2D.gd" type="Script" id=2]
 [ext_resource path="res://Art/ball.png" type="Texture" id=3]
 
 [sub_resource type="Curve2D" id=1]
@@ -11,7 +11,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -0.576279, -0.538065, 0, 0, 0, 0, 0.321167, 0.179895 )
 }
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=2]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -39,10 +39,11 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=3]
 
 custom_solver_bias = 0.0
-radius = 20.2644
+radius = 7.28073
+height = 16.5626
 
 [node name="Enemy01" type="Node2D" groups=[
 "enemy",
@@ -62,26 +63,26 @@ h_offset = 0.0
 v_offset = 0.0
 rotate = false
 cubic_interp = true
-loop = true
+loop = false
 lookahead = 4.0
 
 [node name="ProgressBar" type="ProgressBar" parent="Path2D/PathFollow2D"]
 anchor_left = 0.0
 anchor_top = 0.0
-anchor_right = 0.53
+anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -19.0
-margin_top = -34.0
-margin_right = 49.0
-margin_bottom = -20.0
-rect_scale = Vector2( 0.6, 0.6 )
+margin_left = -15.0
+margin_top = -28.0
+margin_right = 53.0
+margin_bottom = -14.0
+rect_scale = Vector2( 0.5, 0.5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
-custom_styles/fg = SubResource( 3 )
+custom_styles/fg = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
 min_value = 0.0
@@ -106,11 +107,11 @@ motion/sync_to_physics = false
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/KinematicBody2D"]
-position = Vector2( 0.786125, 0.0601577 )
-rotation = -0.674744
-shape = SubResource( 2 )
+position = Vector2( 1.70875, 0.427187 )
+shape = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Path2D/PathFollow2D"]
-scale = Vector2( 0.16353, 0.16353 )
+position = Vector2( 1.70876, -1.13917 )
+scale = Vector2( 0.123518, 0.123518 )
 texture = ExtResource( 3 )
 

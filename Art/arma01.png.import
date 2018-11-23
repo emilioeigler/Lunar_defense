@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/168467-10416772.jpg-1f3c114e459c959272b2ca97324eac49.stex"
+path="res://.import/arma01.png-0dab42e6b74df293dd51e8275bf762f4.stex"
 
 [deps]
 
-source_file="res://Art/168467-10416772.jpg"
-dest_files=[ "res://.import/168467-10416772.jpg-1f3c114e459c959272b2ca97324eac49.stex" ]
+source_file="res://Art/arma01.png"
+dest_files=[ "res://.import/arma01.png-0dab42e6b74df293dd51e8275bf762f4.stex" ]
 
 [params]
 

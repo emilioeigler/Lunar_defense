@@ -12,6 +12,8 @@ var enemigo05
 var enemigo06 
 var enemigo07
 
+
+
 var bala
 
 var timer = 0
@@ -43,9 +45,11 @@ func _process(delta):
 	
 func _nuevo_enemigo(name):
 	name = Enemy_01.instance()
-	
+	var guardias = get_tree().get_nodes_in_group("guardias")
 	name.get_node("Path2D").curve = follow.curve 
 	add_child (name)
+	
+
 	
 	
 	

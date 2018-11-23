@@ -1,15 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Script/Level01.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Enemy01.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Bala.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Art/background01.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Arma01.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Curve2D" id=1]
 
 bake_interval = 5.0
 _data = {
-"points": PoolVector2Array( -101.944, -9.12333, 101.944, 9.12333, -13.8867, 114.254, -125.823, -57.5963, 125.823, 57.5963, 316.142, 195.175, -103.292, 22.2134, 103.292, -22.2134, 568.423, 522.029, -349.941, -53.0742, 349.941, 53.0742, 1023.8, 295.135 )
+"points": PoolVector2Array( -101.944, -9.12333, 101.944, 9.12333, -32.9268, 268.162, -125.823, -57.5963, 125.823, 57.5963, 290.755, 293.548, -225.466, -15.8668, 225.466, 15.8668, 484.329, 495.056, -235.7, -13.4074, 235.7, 13.4074, 708.05, 114.254, 0, 0, 0, 0, 1055.81, 120.072 )
 }
 
 [node name="Level01" type="Node2D"]
@@ -28,13 +29,16 @@ position = Vector2( 16.5807, 3.01471 )
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2( -18.4669, 121.151 )
-rotation = 0.854107
+position = Vector2( -32.9268, 268.162 )
+rotation = 0.0895974
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
-rotate = true
+rotate = false
 cubic_interp = true
-loop = true
+loop = false
 lookahead = 4.0
+
+[node name="Arma01" parent="." instance=ExtResource( 5 )]
+position = Vector2( 480.491, 382.85 )
 
