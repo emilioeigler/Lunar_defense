@@ -16,7 +16,7 @@ func _process(delta):
 	pass
 	
 func vida():
-	vida -= 10
+	vida -= 1
 	get_node("Path2D/PathFollow2D/ProgressBar").value = vida
 	if vida == 0:
 		queue_free()
