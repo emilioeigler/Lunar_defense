@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scenes/Arma01.gd" type="Script" id=1]
+[ext_resource path="res://Script/Arma01.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Bala.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Art/arma01.png" type="Texture" id=3]
 

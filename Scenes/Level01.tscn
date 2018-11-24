@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Script/Level01.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Enemy01.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Bala.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Art/background01.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Arma01.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -41,4 +42,7 @@ lookahead = 4.0
 
 [node name="Arma01" parent="." instance=ExtResource( 5 )]
 position = Vector2( 480.491, 382.85 )
+
+[node name="GUI" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1.0264, 2.89694 )
 

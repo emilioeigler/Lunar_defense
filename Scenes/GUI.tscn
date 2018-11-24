@@ -1,0 +1,113 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/GUI.gd" type="Script" id=1]
+[ext_resource path="res://Art/gui.png" type="Texture" id=2]
+[ext_resource path="res://Art/arma01.png" type="Texture" id=3]
+
+[node name="GUI" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 92.2277 ]
+}
+
+[node name="Base" type="Sprite" parent="."]
+position = Vector2( 220.991, 60.8786 )
+scale = Vector2( 0.726628, 0.726628 )
+texture = ExtResource( 2 )
+
+[node name="Slot01" type="Sprite" parent="."]
+position = Vector2( 63.6164, 56.5054 )
+scale = Vector2( 0.421806, 0.421806 )
+texture = ExtResource( 3 )
+
+[node name="Slot02" type="Sprite" parent="."]
+
+[node name="Slot03" type="Sprite" parent="."]
+
+[node name="Score" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 328.0
+margin_top = 28.0
+margin_right = 366.0
+margin_bottom = 42.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "0000"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 53.0
+margin_top = 81.0
+margin_right = 74.0
+margin_bottom = 102.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "50"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label2" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 146.0
+margin_top = 81.0
+margin_right = 170.0
+margin_bottom = 95.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "100"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label3" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 238.0
+margin_top = 81.0
+margin_right = 262.0
+margin_bottom = 95.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "200"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+

@@ -28,6 +28,7 @@ func vida():
 	get_node("Path2D/PathFollow2D/ProgressBar").value = vida
 	if vida == 0 and vivo:
 		vivo=false
+		get_node("../GUI/Score").text =str( float(get_node("../GUI/Score").text) + 25)
 		get_node("Path2D/PathFollow2D/Sprite").texture = load("res://Art/charco.png")
 		get_node("Path2D/PathFollow2D/Sprite").scale = Vector2(1,1)
 		get_node("Path2D/PathFollow2D/ProgressBar").hide()
