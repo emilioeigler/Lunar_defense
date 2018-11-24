@@ -1,12 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Script/Level01.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Enemy01.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Bala.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Art/background01.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/Arma01.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Art/base.png" type="Texture" id=7]
+[ext_resource path="res://Art/background01.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Art/base.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Area_arma.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -18,12 +17,11 @@ _data = {
 [node name="Level01" type="Node2D"]
 script = ExtResource( 1 )
 Enemy_01 = ExtResource( 2 )
-Bala = ExtResource( 3 )
 
 [node name="background01" type="Sprite" parent="."]
 position = Vector2( 513.121, 303.547 )
 scale = Vector2( 0.535669, 0.55845 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="Path2D" type="Path2D" parent="."]
 self_modulate = Color( 0.5, 0.6, 1, 0.7 )
@@ -41,15 +39,60 @@ cubic_interp = true
 loop = false
 lookahead = 4.0
 
-[node name="Arma01" parent="." instance=ExtResource( 5 )]
-position = Vector2( 480.491, 382.85 )
-
-[node name="GUI" parent="." instance=ExtResource( 6 )]
+[node name="GUI" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1.0264, 2.89694 )
 
 [node name="base" type="Sprite" parent="."]
 position = Vector2( 971.587, 88.1926 )
 scale = Vector2( 0.536, 0.558 )
 z_index = 1
-texture = ExtResource( 7 )
+texture = ExtResource( 5 )
+
+[node name="Area_arma" parent="." instance=ExtResource( 6 )]
+position = Vector2( 475.322, 373.804 )
+
+[node name="Area_arma2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 689.853, 371.219 )
+
+[node name="Area_arma3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 265.96, 373.804 )
+
+[node name="Area_arma4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 466.275, 244.568 )
+
+[node name="Area_arma5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 704.069, 214.844 )
+
+[node name="Area_arma6" parent="." instance=ExtResource( 6 )]
+position = Vector2( 113.462, 366.05 )
+
+[node name="Area_arma7" parent="." instance=ExtResource( 6 )]
+position = Vector2( 192.295, 170.903 )
+
+[node name="Area_arma8" parent="." instance=ExtResource( 6 )]
+position = Vector2( 344.794, 179.95 )
+
+[node name="Area_arma9" parent="." instance=ExtResource( 6 )]
+position = Vector2( 315.069, 513.378 )
+
+[node name="Area_arma10" parent="." instance=ExtResource( 6 )]
+position = Vector2( 477.907, 553.441 )
+
+[node name="Area_arma11" parent="." instance=ExtResource( 6 )]
+position = Vector2( 658.837, 539.226 )
+
+[node name="Area_arma12" parent="." instance=ExtResource( 6 )]
+position = Vector2( 516.677, 98.5314 )
+
+[node name="Area_arma13" parent="." instance=ExtResource( 6 )]
+position = Vector2( 802.288, 188.996 )
+
+[node name="Area_arma14" parent="." instance=ExtResource( 6 )]
+position = Vector2( 627.82, 33.9135 )
+
+[node name="Area_arma15" parent="." instance=ExtResource( 6 )]
+position = Vector2( 766.102, 40.3753 )
+
+[node name="Area_arma16" parent="." instance=ExtResource( 6 )]
+position = Vector2( 914.724, 192.874 )
 

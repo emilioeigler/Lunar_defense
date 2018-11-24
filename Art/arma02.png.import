@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gui_gris.png-f7ef28844158cb1f2831345c3b670136.stex"
+path="res://.import/arma02.png-d85da2fb3447002df8b27d9907ad119d.stex"
 
 [deps]
 
-source_file="res://Art/gui_gris.png"
-dest_files=[ "res://.import/gui_gris.png-f7ef28844158cb1f2831345c3b670136.stex" ]
+source_file="res://Art/arma02.png"
+dest_files=[ "res://.import/arma02.png-d85da2fb3447002df8b27d9907ad119d.stex" ]
 
 [params]
 

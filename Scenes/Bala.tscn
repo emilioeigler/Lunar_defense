@@ -9,6 +9,7 @@ custom_solver_bias = 0.0
 radius = 4.29682
 
 [node name="Bala" type="KinematicBody2D"]
+z_index = 1
 input_pickable = false
 collision_layer = 1
 collision_mask = 1

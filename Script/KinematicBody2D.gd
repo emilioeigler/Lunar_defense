@@ -4,7 +4,7 @@ var vida
 
 func _process(delta):
 	
-	vida = get_node("../../..").vida
+	vida = get_node("../../..").vidas
 	
 func hit():
 	get_node("../../..").vida()
