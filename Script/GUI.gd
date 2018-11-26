@@ -2,6 +2,7 @@ extends Node2D
 
 var activo = false
 var activo2 = false
+var activo4 = false
 var score
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,4 +24,11 @@ func _process(delta):
 	else:
 		$Slot02/Slot02.texture = load("res://Art/arma02_gris.png")
 		activo2 = false
+	
+	if float($Score.text)>=float($Label4.text):
+		$Slot04/area_arma.texture = load("res://Art/area_arma.png")
+		activo4 = true
+	else:
+		$Slot04/area_arma.texture = load("res://Art/area_arma_no.png")
+		activo4 = false
 	pass

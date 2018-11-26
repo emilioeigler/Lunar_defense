@@ -14,10 +14,11 @@ func _physics_process(delta):
 
 	motion = dir.normalized() * BULLET_VELOCITY * delta
 	var collision = move_and_collide(motion)
-	
+	get_collision_exceptions()
 	if (collision):
 		if (collision.collider.is_in_group("enemy")):
 			collision.collider.hit()
+		
 		get_parent().remove_child(self)
 		
 

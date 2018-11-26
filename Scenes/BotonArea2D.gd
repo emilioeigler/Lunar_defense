@@ -1,0 +1,11 @@
+extends Area2D
+
+func _input_event(viewport, event, shape_idx):
+    if event is InputEventMouseButton \
+    and event.button_index == BUTTON_LEFT \
+    and event.is_pressed():
+        self.on_click()
+
+func on_click():
+	$Sprite.texture = load ("res://Art/boton_play_press.png")
+	get_node("../alien_ship")._attack()

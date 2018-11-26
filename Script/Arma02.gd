@@ -4,7 +4,6 @@ export(PackedScene) var Bala
 
 var vida_enemy = 0
 var vectorDirection
-var vectorPosition
 var timer = 0
 var disparar = 0
 var enemy_target = null
@@ -44,7 +43,6 @@ func _physics_process(delta):
 				bala_instance.dir = vectorDirection
 				get_parent().add_child(bala_instance)
 				
-	print($Arma_derecha.position)
 	if timer>100:
 		timer = 0	
 	pass

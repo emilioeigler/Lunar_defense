@@ -9,4 +9,5 @@ func _process(delta):
 func hit():
 	get_node("../../..").vida()
 	
-	
+func _morir():
+	get_node("../../..")._morir()

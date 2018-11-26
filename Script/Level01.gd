@@ -12,6 +12,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _process(delta):
+	
 	timer += 1
 	if timer == 150:
 		_nuevo_enemigo(enemigo01)
@@ -59,14 +60,15 @@ func _process(delta):
 		_nuevo_enemigo(enemigo01)
 	if timer == 7200:
 		_nuevo_enemigo(enemigo01)
-	
+		timer = 0
 	pass
-	
+
 func _nuevo_enemigo(name):
 	name = Enemy_01.instance()
 	name.get_node("Path2D").curve = follow.curve 
 	add_child (name)
 	
+
 	
 
 	
