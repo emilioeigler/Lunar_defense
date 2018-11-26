@@ -2,7 +2,7 @@ extends Node2D
 
 onready var follow = get_node("Path2D")
 export (PackedScene) var Enemy_01
-
+export (PackedScene) var Enemy_02
 
 var enemigo01 
 
@@ -55,16 +55,20 @@ func _process(delta):
 	if timer == 6920:
 		_nuevo_enemigo(enemigo01)
 	if timer == 7000:
-		_nuevo_enemigo(enemigo01)
+		_nuevo_enemigo2(enemigo01)
 	if timer == 7100:
-		_nuevo_enemigo(enemigo01)
+		_nuevo_enemigo2(enemigo01)
 	if timer == 7200:
-		_nuevo_enemigo(enemigo01)
+		_nuevo_enemigo2(enemigo01)
 		timer = 0
 	pass
 
 func _nuevo_enemigo(name):
 	name = Enemy_01.instance()
+	name.get_node("Path2D").curve = follow.curve 
+	add_child (name)
+func _nuevo_enemigo2(name):
+	name = Enemy_02.instance()
 	name.get_node("Path2D").curve = follow.curve 
 	add_child (name)
 	

@@ -1,13 +1,14 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Script/Level01.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Enemy01.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Art/background01.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Area_arma.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Adentro_base.gd" type="Script" id=6]
-[ext_resource path="res://Art/energia_base3.png" type="Texture" id=7]
-[ext_resource path="res://Art/base.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Enemy02.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Art/background01.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Area_arma.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Script/Adentro_base.gd" type="Script" id=7]
+[ext_resource path="res://Art/energia_base3.png" type="Texture" id=8]
+[ext_resource path="res://Art/base.png" type="Texture" id=9]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -24,12 +25,13 @@ extents = Vector2( 22.9967, 38.4585 )
 [node name="Level01" type="Node2D"]
 script = ExtResource( 1 )
 Enemy_01 = ExtResource( 2 )
+Enemy_02 = ExtResource( 3 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 513.121, 303.547 )
 scale = Vector2( 0.535669, 0.55845 )
 z_index = -1
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Path2D" type="Path2D" parent="."]
 self_modulate = Color( 0.5, 0.6, 1, 0.7 )
@@ -47,59 +49,58 @@ cubic_interp = true
 loop = false
 lookahead = 4.0
 
-[node name="GUI" parent="." instance=ExtResource( 4 )]
-position = Vector2( 46.8892, 1.63644 )
+[node name="GUI" parent="." instance=ExtResource( 5 )]
 
-[node name="Area_arma" parent="." instance=ExtResource( 5 )]
+[node name="Area_arma" parent="." instance=ExtResource( 6 )]
 position = Vector2( 479.199, 378.973 )
 habilitada = true
 
-[node name="Area_arma2" parent="." instance=ExtResource( 5 )]
+[node name="Area_arma2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 689.853, 371.219 )
 habilitada = true
 
-[node name="Area_arma3" parent="." instance=ExtResource( 5 )]
+[node name="Area_arma3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 265.96, 373.804 )
 habilitada = true
 
-[node name="Area_arma4" parent="." instance=ExtResource( 5 )]
+[node name="Area_arma4" parent="." instance=ExtResource( 6 )]
 position = Vector2( 466.275, 244.568 )
 
-[node name="Area_arma5" parent="." instance=ExtResource( 5 )]
+[node name="Area_arma5" parent="." instance=ExtResource( 6 )]
 position = Vector2( 704.069, 214.844 )
 
-[node name="Area_arma6" parent="." instance=ExtResource( 5 )]
+[node name="Area_arma6" parent="." instance=ExtResource( 6 )]
 position = Vector2( 113.462, 366.05 )
 
-[node name="Area_arma7" parent="." instance=ExtResource( 5 )]
+[node name="Area_arma7" parent="." instance=ExtResource( 6 )]
 position = Vector2( 192.295, 170.903 )
 
-[node name="Area_arma8" parent="." instance=ExtResource( 5 )]
+[node name="Area_arma8" parent="." instance=ExtResource( 6 )]
 position = Vector2( 344.794, 179.95 )
 
-[node name="Area_arma9" parent="." instance=ExtResource( 5 )]
+[node name="Area_arma9" parent="." instance=ExtResource( 6 )]
 position = Vector2( 315.069, 513.378 )
 
-[node name="Area_arma10" parent="." instance=ExtResource( 5 )]
+[node name="Area_arma10" parent="." instance=ExtResource( 6 )]
 position = Vector2( 477.907, 553.441 )
 habilitada = true
 
-[node name="Area_arma11" parent="." instance=ExtResource( 5 )]
+[node name="Area_arma11" parent="." instance=ExtResource( 6 )]
 position = Vector2( 658.837, 539.226 )
 
-[node name="Area_arma12" parent="." instance=ExtResource( 5 )]
+[node name="Area_arma12" parent="." instance=ExtResource( 6 )]
 position = Vector2( 514.221, 155.007 )
 
-[node name="Area_arma13" parent="." instance=ExtResource( 5 )]
+[node name="Area_arma13" parent="." instance=ExtResource( 6 )]
 position = Vector2( 802.288, 188.996 )
 
-[node name="Area_arma14" parent="." instance=ExtResource( 5 )]
+[node name="Area_arma14" parent="." instance=ExtResource( 6 )]
 position = Vector2( 627.82, 33.9135 )
 
-[node name="Area_arma15" parent="." instance=ExtResource( 5 )]
+[node name="Area_arma15" parent="." instance=ExtResource( 6 )]
 position = Vector2( 766.102, 40.3753 )
 
-[node name="Area_arma16" parent="." instance=ExtResource( 5 )]
+[node name="Area_arma16" parent="." instance=ExtResource( 6 )]
 position = Vector2( 914.724, 192.874 )
 
 [node name="Adentro_base" type="Area2D" parent="."]
@@ -111,13 +112,13 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
 [node name="Energia_base" type="Sprite" parent="Adentro_base"]
 position = Vector2( -43.9846, -72.3197 )
 scale = Vector2( 0.535669, 0.55845 )
 z_index = 4
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Adentro_base"]
 position = Vector2( 2.58472, -9.04654 )
@@ -127,6 +128,6 @@ shape = SubResource( 2 )
 position = Vector2( -27.4063, -21.6579 )
 scale = Vector2( 0.536, 0.558 )
 z_index = 3
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [connection signal="body_entered" from="Adentro_base" to="Adentro_base" method="_on_Adentro_base_body_entered"]

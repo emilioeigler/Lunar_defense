@@ -13,7 +13,6 @@ func _ready():
 
 
 func _process(delta):
-	
 	follow.offset += speed
 	if vidas <= 0:
 		timer += 1
@@ -24,11 +23,11 @@ func _process(delta):
 	pass
 	
 func vida():
-	vidas -= 3.5
+	vidas -= 1
 	get_node("Path2D/PathFollow2D/ProgressBar").value = vidas
 	if vidas <= 0 and vivo:
 		vivo=false
-		get_node("../GUI/Score").text =str( float(get_node("../GUI/Score").text) + 25)
+		get_node("../GUI/Score").text =str( float(get_node("../GUI/Score").text) + 40)
 		z_index = 0
 		get_node("Path2D/PathFollow2D/Sprite").texture = load("res://Art/charco.png")
 		get_node("Path2D/PathFollow2D/Sprite").scale = Vector2(1,1)

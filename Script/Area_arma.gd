@@ -44,6 +44,6 @@ func on_click():
 		if get_node("../GUI/Slot04").seleccion == true and !ocupada:
 			get_node("../GUI/Slot04").seleccion = false
 			habilitada = true
-			get_node("../GUI/Score").text =str( float(get_node("../GUI/Score").text) - 150)
+			get_node("../GUI/Score").text =str( float(get_node("../GUI/Score").text) - 200)
 			ocupada = false
 	
