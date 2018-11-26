@@ -4,6 +4,7 @@ export var speed =  0.2
 var vidas = 100
 var timer = 0
 var vivo = true
+var escudo = false
 
 onready var follow = get_node("Path2D/PathFollow2D")
 
@@ -15,16 +16,26 @@ func _ready():
 func _process(delta):
 	
 	follow.offset += speed
+	if !escudo and vidas>0:
+		get_node("Path2D/PathFollow2D/Sprite").texture = load("res://Art/enemy01.png")
 	if vidas <= 0:
 		timer += 1
 	if timer >= 500:
 		$Path2D/PathFollow2D/Sprite.modulate.a -= 0.005
 	if timer == 700:
 		_morir()
+	if escudo:
+		get_node("Path2D/PathFollow2D/Sprite").texture = load("res://Art/enemy01_escudo.png")
+		if vidas <= 50:
+			escudo = false
+	
 	pass
 	
 func vida():
-	vidas -= 3.5
+	if !escudo:
+		vidas -= 3.5
+	if escudo:
+		vidas -= 1.5
 	get_node("Path2D/PathFollow2D/ProgressBar").value = vidas
 	if vidas <= 0 and vivo:
 		vivo=false

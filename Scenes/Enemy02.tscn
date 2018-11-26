@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Script/Enemy02.gd" type="Script" id=1]
-[ext_resource path="res://Art/ball.png" type="Texture" id=2]
+[ext_resource path="res://Art/enemy01.png" type="Texture" id=2]
 [ext_resource path="res://Script/KinematicBody2D.gd" type="Script" id=3]
 
 [sub_resource type="Curve2D" id=1]
@@ -106,8 +106,8 @@ texture = ExtResource( 2 )
 "enemy",
 ]]
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 2
+collision_mask = 2
 collision/safe_margin = 0.08
 motion/sync_to_physics = false
 script = ExtResource( 3 )

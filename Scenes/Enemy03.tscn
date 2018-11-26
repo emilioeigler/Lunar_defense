@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Script/Enemy01.gd" type="Script" id=1]
-[ext_resource path="res://Script/KinematicBody2D.gd" type="Script" id=2]
-[ext_resource path="res://Art/enemy01.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Enemy03.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Bala_enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Art/enemy03.png" type="Texture" id=3]
+[ext_resource path="res://Script/KinematicBody2D.gd" type="Script" id=4]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -39,18 +40,24 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
+[sub_resource type="CircleShape2D" id=4]
+
+custom_solver_bias = 0.0
+radius = 184.555
+
 [sub_resource type="CapsuleShape2D" id=3]
 
 custom_solver_bias = 0.0
-radius = 7.28073
-height = 16.5626
+radius = 8.598
+height = 27.8079
 
-[node name="Enemy01" type="Node2D" groups=[
+[node name="Enemy03" type="Node2D" groups=[
 "enemy",
 ]]
 position = Vector2( -1.2605, 0 )
 z_index = 1
 script = ExtResource( 1 )
+Bala = ExtResource( 2 )
 speed = 0.2
 
 [node name="Path2D" type="Path2D" parent="."]
@@ -73,9 +80,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = -15.0
-margin_top = -28.0
+margin_top = -46.0
 margin_right = 53.0
-margin_bottom = -14.0
+margin_bottom = -32.0
 rect_scale = Vector2( 0.5, 0.5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -97,6 +104,24 @@ allow_greater = false
 allow_lesser = false
 percent_visible = true
 
+[node name="Sprite" type="Sprite" parent="Path2D/PathFollow2D"]
+position = Vector2( 1.76525, -10.1332 )
+scale = Vector2( 0.17662, 0.174621 )
+texture = ExtResource( 3 )
+
+[node name="AreaEnemy03" type="Area2D" parent="Path2D/PathFollow2D"]
+position = Vector2( 0.576279, 0.538065 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/AreaEnemy03"]
+shape = SubResource( 4 )
+
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Path2D/PathFollow2D" groups=[
 "enemy",
 ]]
@@ -105,14 +130,11 @@ collision_layer = 2
 collision_mask = 2
 collision/safe_margin = 0.08
 motion/sync_to_physics = false
-script = ExtResource( 2 )
+script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/KinematicBody2D"]
-position = Vector2( 1.70875, 0.427187 )
+position = Vector2( 1.2105, -6.88048 )
 shape = SubResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="Path2D/PathFollow2D"]
-position = Vector2( 1.70876, -1.13917 )
-scale = Vector2( 0.123518, 0.123518 )
-texture = ExtResource( 3 )
-
+[connection signal="body_entered" from="Path2D/PathFollow2D/AreaEnemy03" to="." method="_on_AreaEnemy03_body_entered"]
+[connection signal="body_exited" from="Path2D/PathFollow2D/AreaEnemy03" to="." method="_on_AreaEnemy03_body_exited"]

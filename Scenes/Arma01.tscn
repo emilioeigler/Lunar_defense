@@ -1,15 +1,23 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Script/Arma01.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Bala.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Art/arma01.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/arma_body.gd" type="Script" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 220.32
 
-[node name="Arma01" type="Node2D"]
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 19.3416
+
+[node name="Arma01" type="Node2D" groups=[
+"arma",
+]]
 z_index = 2
 script = ExtResource( 1 )
 Bala = ExtResource( 2 )
@@ -24,11 +32,27 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+collision_layer = 2
+collision_mask = 2
 audio_bus_override = false
 audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
+
+[node name="arma_body" type="KinematicBody2D" parent="." groups=[
+"arma",
+]]
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+motion/sync_to_physics = false
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="arma_body"]
+position = Vector2( 0.00646973, -0.21582 )
+shape = SubResource( 2 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

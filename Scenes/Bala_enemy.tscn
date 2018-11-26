@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Script/Bala.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Bala_enemy.gd" type="Script" id=1]
 [ext_resource path="res://art/bala.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -8,11 +8,11 @@
 custom_solver_bias = 0.0
 radius = 4.29682
 
-[node name="Bala" type="KinematicBody2D"]
+[node name="Bala_enemy" type="KinematicBody2D"]
 z_index = 1
 input_pickable = false
-collision_layer = 2
-collision_mask = 2
+collision_layer = 1
+collision_mask = 1
 collision/safe_margin = 0.08
 motion/sync_to_physics = false
 script = ExtResource( 1 )

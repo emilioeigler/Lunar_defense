@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ball.png-45d458068f60e8cba40b20ff93588e10.stex"
+path="res://.import/bala_enemy.png-debb5263a76a98c59620461153b89867.stex"
 
 [deps]
 
-source_file="res://Art/ball.png"
-dest_files=[ "res://.import/ball.png-45d458068f60e8cba40b20ff93588e10.stex" ]
+source_file="res://Art/bala_enemy.png"
+dest_files=[ "res://.import/bala_enemy.png-debb5263a76a98c59620461153b89867.stex" ]
 
 [params]
 
