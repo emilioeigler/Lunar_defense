@@ -1,7 +1,7 @@
 extends Area2D
 
 var energy_base = 3
-
+var timer = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -15,6 +15,10 @@ func _process(delta):
 		$Energia_base.texture = load("res://Art/energia_base1.png")
 	if energy_base == 0:
 		$Energia_base.texture = load("res://Art/energia_base0.png")
+	if energy_base == 0:
+		timer += 1
+	if timer == 300:
+		get_tree().change_scene("res://Scenes/Game.tscn")
 	pass
 
 
