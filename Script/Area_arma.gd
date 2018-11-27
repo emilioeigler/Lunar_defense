@@ -2,8 +2,10 @@ extends Area2D
 
 var scene_arma = load("res://Scenes/Arma01.tscn")
 var scene_arma2 = load("res://Scenes/Arma02.tscn")
+var scene_arma3 = load("res://Scenes/Arma03.tscn")
 var arma
 var arma2
+var arma3
 var ocupada = false #si ya esta ocupada por un arma
 export var habilitada = false #area habilitada o no
 
@@ -45,6 +47,15 @@ func on_click():
 			get_node("../GUI/Score").text =str( float(get_node("../GUI/Score").text) - 100)
 			arma2.area = self
 			add_child (arma2)
+			ocupada = true
+		#si el slot03 esta seleccionado y el area no ocupada agregar arma 03	
+		if get_node("../GUI/Slot03").seleccion == true and !ocupada:
+			get_node("../GUI/Slot03").seleccion = false
+			arma3 = scene_arma3.instance()
+			arma3.position.y -= 10
+			get_node("../GUI/Score").text =str( float(get_node("../GUI/Score").text) - 200)
+			arma3.area = self
+			add_child (arma3)
 			ocupada = true
 	#si el area no esta habilitada
 	else:

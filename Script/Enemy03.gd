@@ -23,7 +23,7 @@ func _ready():
 
 
 func _process(delta):
-	
+	get_node("Path2D/PathFollow2D/ProgressBar").value = vidas
 	follow.offset += speed
 	if !escudo and vidas>0:
 		get_node("Path2D/PathFollow2D/Sprite").texture = load("res://Art/enemy03.png")
@@ -71,7 +71,7 @@ func vida():
 		vidas -= 3.5
 	if escudo:
 		vidas -= 1.5
-	get_node("Path2D/PathFollow2D/ProgressBar").value = vidas
+	
 	if vidas <= 0 and vivo:
 		vivo=false
 		get_node("../GUI/Score").text =str( float(get_node("../GUI/Score").text) + 25)

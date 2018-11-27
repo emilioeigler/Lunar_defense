@@ -1,5 +1,6 @@
 extends Area2D
 
+export(PackedScene) var lost_base
 var energy_base = 3
 var timer = 0
 # Called when the node enters the scene tree for the first time.
@@ -15,8 +16,11 @@ func _process(delta):
 		$Energia_base.texture = load("res://Art/energia_base1.png")
 	if energy_base == 0:
 		$Energia_base.texture = load("res://Art/energia_base0.png")
-	if energy_base == 0:
+	if energy_base <= 0:
 		timer += 1
+	if timer == 1:
+		var lost_base_instance = lost_base.instance()
+		get_parent().add_child(lost_base_instance)
 	if timer == 300:
 		get_tree().change_scene("res://Scenes/Game.tscn")
 	pass

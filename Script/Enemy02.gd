@@ -13,6 +13,7 @@ func _ready():
 
 
 func _process(delta):
+	get_node("Path2D/PathFollow2D/ProgressBar").value = vidas
 	follow.offset += speed
 	if vidas <= 0:
 		timer += 1
@@ -24,7 +25,7 @@ func _process(delta):
 	
 func vida():
 	vidas -= 1
-	get_node("Path2D/PathFollow2D/ProgressBar").value = vidas
+	
 	if vidas <= 0 and vivo:
 		vivo=false
 		get_node("../GUI/Score").text =str( float(get_node("../GUI/Score").text) + 40)

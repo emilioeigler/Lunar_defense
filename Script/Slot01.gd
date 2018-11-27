@@ -18,5 +18,6 @@ func on_click():
 	if get_node("../").activo==true:
 		seleccion = true
 		get_node("../Slot02").seleccion = false
+		get_node("../Slot03").seleccion = false
 		get_node("../Slot04").seleccion = false
 	

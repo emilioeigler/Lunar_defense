@@ -15,7 +15,7 @@ var area
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass 
 
 func _physics_process(delta):
 	if vidas <= 0:
@@ -59,8 +59,6 @@ func _physics_process(delta):
 	
 func vida():
 	vidas -= 5
-	#get_node("Path2D/PathFollow2D/ProgressBar").value = vidas
-	
 	
 func morir():
 	queue_free()
@@ -69,11 +67,11 @@ func _on_Area2D_body_entered(body):
 	if body.is_in_group("enemy"):
 		disparar += 1	
 		lista_enemy.append(body)		
-	pass # Replace with function body.
+	pass 
 
 func _on_Area2D_body_exited(body):
 	if body.is_in_group("enemy"):
 		disparar -= 1
 		var nodo = lista_enemy.find(body)
 		lista_enemy.remove(nodo)
-	pass # Replace with function body.
+	pass 
