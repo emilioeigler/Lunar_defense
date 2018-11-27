@@ -7,7 +7,7 @@
 [ext_resource path="res://Art/seleccion.png" type="Texture" id=5]
 [ext_resource path="res://Script/Slot02.gd" type="Script" id=6]
 [ext_resource path="res://Art/arma02.png" type="Texture" id=7]
-[ext_resource path="res://Scenes/Slot03.gd" type="Script" id=8]
+[ext_resource path="res://Script/Slot03.gd" type="Script" id=8]
 [ext_resource path="res://Art/arma03.png" type="Texture" id=9]
 [ext_resource path="res://Script/Slot04.gd" type="Script" id=10]
 [ext_resource path="res://Art/area_arma.png" type="Texture" id=11]
@@ -22,12 +22,12 @@ radius = 41.2547
 custom_solver_bias = 0.0
 radius = 41.9874
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
 radius = 41.1178
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=4]
 
 custom_solver_bias = 0.0
 radius = 41.1267
@@ -104,7 +104,7 @@ script = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Slot03"]
 position = Vector2( 253.117, 58.0178 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="Slot03" type="Sprite" parent="Slot03"]
 position = Vector2( 252.143, 56.6318 )
@@ -128,7 +128,7 @@ script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Slot04"]
 position = Vector2( 346.969, 57.449 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="area_arma" type="Sprite" parent="Slot04"]
 position = Vector2( 348.839, 53.219 )

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/lost_base.gd" type="Script" id=1]
+[ext_resource path="res://Script/lost_base.gd" type="Script" id=1]
 [ext_resource path="res://Art/lost_base.png" type="Texture" id=2]
 
 [node name="lost_base" type="Node2D"]
