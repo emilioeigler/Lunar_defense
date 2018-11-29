@@ -1,6 +1,7 @@
 extends Node2D
 
 export(PackedScene) var Bala
+export(PackedScene) var Coin
 
 export var speed =  0.2
 var vidas = 100
@@ -74,7 +75,6 @@ func vida():
 	
 	if vidas <= 0 and vivo:
 		vivo=false
-		get_node("../GUI/Score").text =str( float(get_node("../GUI/Score").text) + 25)
 		z_index = 0
 		get_node("Path2D/PathFollow2D/Sprite").texture = load("res://Art/charco.png")
 		get_node("Path2D/PathFollow2D/Sprite").scale = Vector2(1,1)
@@ -82,7 +82,10 @@ func vida():
 		get_node("Path2D/PathFollow2D/KinematicBody2D").queue_free()
 		speed = 0
 		get_node("../").cant_enemy -= 1
-	
+		var coin_instance = Coin.instance()
+		coin_instance.position = get_node("Path2D/PathFollow2D/Sprite").global_position
+		coin_instance.valor = 80
+		get_parent().add_child(coin_instance)
 func _morir():
 	queue_free()
 

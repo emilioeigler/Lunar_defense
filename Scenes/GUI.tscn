@@ -248,3 +248,6 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 458.455, 38.6786 )
+

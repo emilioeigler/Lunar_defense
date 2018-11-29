@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Script/Enemy01.gd" type="Script" id=1]
-[ext_resource path="res://Script/KinematicBody2D.gd" type="Script" id=2]
-[ext_resource path="res://Art/enemy01.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Coin.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Script/KinematicBody2D.gd" type="Script" id=3]
+[ext_resource path="res://Art/enemy01.png" type="Texture" id=4]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -51,6 +52,7 @@ height = 16.5626
 position = Vector2( -1.2605, 0 )
 z_index = 1
 script = ExtResource( 1 )
+Coin = ExtResource( 2 )
 speed = 0.2
 
 [node name="Path2D" type="Path2D" parent="."]
@@ -105,7 +107,7 @@ collision_layer = 2
 collision_mask = 2
 collision/safe_margin = 0.08
 motion/sync_to_physics = false
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/KinematicBody2D"]
 position = Vector2( 1.70875, 0.427187 )
@@ -114,5 +116,5 @@ shape = SubResource( 3 )
 [node name="Sprite" type="Sprite" parent="Path2D/PathFollow2D"]
 position = Vector2( 1.70876, -1.13917 )
 scale = Vector2( 0.123518, 0.123518 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
