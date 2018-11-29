@@ -81,7 +81,7 @@ func vida():
 		get_node("Path2D/PathFollow2D/ProgressBar").hide()
 		get_node("Path2D/PathFollow2D/KinematicBody2D").queue_free()
 		speed = 0
-		
+		get_node("../").cant_enemy -= 1
 	
 func _morir():
 	queue_free()

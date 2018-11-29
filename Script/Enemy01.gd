@@ -5,6 +5,7 @@ var vidas = 100
 var timer = 0
 var vivo = true
 var escudo = false
+var oleada
 
 onready var follow = get_node("Path2D/PathFollow2D")
 
@@ -22,6 +23,7 @@ func _process(delta):
 		get_node("Path2D/PathFollow2D/Sprite").scale = Vector2(1,1)
 		get_node("Path2D/PathFollow2D/ProgressBar").hide()
 		get_node("Path2D/PathFollow2D/KinematicBody2D").queue_free()
+		get_node("../").cant_enemy -= 1
 		speed = 0
 	get_node("Path2D/PathFollow2D/ProgressBar").value = vidas
 	follow.offset += speed

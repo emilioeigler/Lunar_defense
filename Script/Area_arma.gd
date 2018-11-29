@@ -44,7 +44,7 @@ func on_click():
 			get_node("../GUI/Slot02").seleccion = false
 			arma2 = scene_arma2.instance()
 			arma2.position.y -= 10
-			get_node("../GUI/Score").text =str( float(get_node("../GUI/Score").text) - 100)
+			get_node("../GUI/Score").text =str( float(get_node("../GUI/Score").text) - 150)
 			arma2.area = self
 			add_child (arma2)
 			ocupada = true
@@ -53,7 +53,7 @@ func on_click():
 			get_node("../GUI/Slot03").seleccion = false
 			arma3 = scene_arma3.instance()
 			arma3.position.y -= 10
-			get_node("../GUI/Score").text =str( float(get_node("../GUI/Score").text) - 200)
+			get_node("../GUI/Score").text =str( float(get_node("../GUI/Score").text) - 400)
 			arma3.area = self
 			add_child (arma3)
 			ocupada = true
@@ -63,6 +63,6 @@ func on_click():
 		if get_node("../GUI/Slot04").seleccion == true and !ocupada:
 			get_node("../GUI/Slot04").seleccion = false
 			habilitada = true
-			get_node("../GUI/Score").text =str( float(get_node("../GUI/Score").text) - 200)
+			get_node("../GUI/Score").text =str( float(get_node("../GUI/Score").text) - 500)
 			ocupada = false
 	

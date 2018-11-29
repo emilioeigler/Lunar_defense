@@ -1,13 +1,8 @@
 extends Node2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 func _process(delta):
-	$lost_base.scale += Vector2(0.001,0.001)
+	$Spr_message.scale += Vector2(0.001,0.001)
+	if $Spr_message.scale.x >= 1.299:
+		$Spr_message.scale = Vector2(1,1)
+		queue_free()
 	pass
