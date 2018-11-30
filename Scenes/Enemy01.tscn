@@ -49,6 +49,7 @@ height = 16.5626
 [node name="Enemy01" type="Node2D" groups=[
 "enemy",
 ]]
+pause_mode = 1
 position = Vector2( -1.2605, 0 )
 z_index = 1
 script = ExtResource( 1 )

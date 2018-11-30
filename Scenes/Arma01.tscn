@@ -18,6 +18,7 @@ radius = 19.3416
 [node name="Arma01" type="Node2D" groups=[
 "arma",
 ]]
+pause_mode = 1
 z_index = 2
 script = ExtResource( 1 )
 Bala = ExtResource( 2 )

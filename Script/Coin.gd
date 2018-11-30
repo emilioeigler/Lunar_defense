@@ -23,5 +23,6 @@ func _process(delta):
 
 
 func _on_Tween_tween_completed(object, key):
+	get_node("../GUI/Score").text =str( float(get_node("../GUI/Score").text) + valor)
 	queue_free()
 

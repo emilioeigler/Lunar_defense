@@ -37,7 +37,7 @@ func _process(delta):
 		_morir()
 	if escudo:
 		get_node("Path2D/PathFollow2D/Sprite").texture = load("res://Art/enemy03_escudo.png")
-		if vidas <= 50:
+		if vidas <= 5:
 			escudo = false
 	
 	if lista_arma:
@@ -69,9 +69,9 @@ func _process(delta):
 	
 func vida():
 	if !escudo:
-		vidas -= 3.5
+		vidas -= 53.5
 	if escudo:
-		vidas -= 1.5
+		vidas -= 51.5
 	
 	if vidas <= 0 and vivo:
 		vivo=false

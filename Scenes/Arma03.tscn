@@ -33,6 +33,7 @@ custom_solver_bias = 0.0
 radius = 162.941
 
 [node name="Arma03" type="Node2D"]
+pause_mode = 1
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

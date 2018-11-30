@@ -18,5 +18,5 @@ func _input_event(viewport, event, shape_idx):
 
 func on_click():
 	if !click:
-		get_node("../../GUI/Score").text =str( float(get_node("../../GUI/Score").text) + get_node("../").valor)
+		
 		click = true

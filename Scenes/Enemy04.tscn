@@ -1,0 +1,154 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Script/Enemy04.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Bala_enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Coin.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Art/enemy04.png" type="Texture" id=4]
+[ext_resource path="res://Script/KinematicBody2D.gd" type="Script" id=5]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -0.576279, -0.538065, 0, 0, 0, 0, 0.321167, 0.179895 )
+}
+
+[sub_resource type="StyleBoxFlat" id=2]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 0.14902, 1, 0, 1 )
+draw_center = true
+border_width_left = 0
+border_width_top = 0
+border_width_right = 0
+border_width_bottom = 0
+border_color = Color( 0.8, 0.8, 0.8, 1 )
+border_blend = false
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
+
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 184.555
+
+[sub_resource type="CapsuleShape2D" id=4]
+
+custom_solver_bias = 0.0
+radius = 17.7468
+height = 52.962
+
+[node name="Enemy04" type="Node2D" groups=[
+"enemy",
+]]
+pause_mode = 1
+position = Vector2( -1.2605, 0 )
+z_index = 1
+script = ExtResource( 1 )
+Bala = ExtResource( 2 )
+Coin = ExtResource( 3 )
+speed = 0.2
+
+[node name="Path2D" type="Path2D" parent="."]
+self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( -0.576279, -0.538065 )
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = false
+cubic_interp = true
+loop = false
+lookahead = 4.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Path2D/PathFollow2D"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -18.0
+margin_top = -102.0
+margin_right = 50.0
+margin_bottom = -88.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+custom_styles/fg = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 100.0
+exp_edit = false
+rounded = false
+allow_greater = false
+allow_lesser = false
+percent_visible = true
+
+[node name="Sprite" type="Sprite" parent="Path2D/PathFollow2D"]
+position = Vector2( 0.861454, -37.1127 )
+scale = Vector2( 0.366566, 0.362418 )
+texture = ExtResource( 4 )
+
+[node name="AreaEnemy04" type="Area2D" parent="Path2D/PathFollow2D"]
+position = Vector2( 0.576279, 0.538065 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/AreaEnemy04"]
+shape = SubResource( 3 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Path2D/PathFollow2D" groups=[
+"enemy",
+]]
+input_pickable = false
+collision_layer = 2
+collision_mask = 2
+collision/safe_margin = 0.08
+motion/sync_to_physics = false
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/KinematicBody2D"]
+position = Vector2( -0.407161, -29.8515 )
+shape = SubResource( 4 )
+
+[node name="shot" type="AudioStreamPlayer2D" parent="."]
+stream = null
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[connection signal="body_entered" from="Path2D/PathFollow2D/AreaEnemy04" to="." method="_on_AreaEnemy03_body_entered"]
+[connection signal="body_exited" from="Path2D/PathFollow2D/AreaEnemy04" to="." method="_on_AreaEnemy03_body_exited"]

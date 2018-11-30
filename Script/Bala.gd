@@ -8,7 +8,7 @@ var pos = Vector2()
 var motion = Vector2(1, 0)
 func _ready():
 	position = pos
-	
+	$shoot.play(1)
 
 func _physics_process(delta):
 
