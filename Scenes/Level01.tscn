@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Script/Level01.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Message.tscn" type="PackedScene" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Script/ovni.gd" type="Script" id=16]
 [ext_resource path="res://Scenes/Sound_on_off.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Sound/music.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Sound/vida_base.ogg" type="AudioStream" id=19]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -221,6 +222,15 @@ position = Vector2( 978.557, 523.253 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+mix_target = 0
+bus = "Master"
+
+[node name="vida_base" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
