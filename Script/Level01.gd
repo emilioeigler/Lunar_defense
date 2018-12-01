@@ -14,13 +14,14 @@ var timer = 0
 var oleada_numero = 0
 
 func _ready():
-	self.pause_mode = Node.PAUSE_MODE_PROCESS
+	$Music.play()
 
 func _process(delta):
-			
+		
 	if cant_enemy==0:
-		oleada_numero += 1
-		timer = 0
+		if oleada_numero < 11:
+			oleada_numero += 1
+			timer = 0
 		if oleada_numero == 1:
 			cant_enemy = 8
 		if oleada_numero == 2:
@@ -74,7 +75,6 @@ func _process(delta):
 		oleada_10()
 	if oleada_numero == 11 :
 		oleada_11()
-	print(cant_enemy)
 	pass
 
 

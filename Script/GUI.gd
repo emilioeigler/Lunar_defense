@@ -5,10 +5,8 @@ var activo2 = false
 var activo3 = false
 var activo4 = false
 var score
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
+#determina si los sprites estan en color o en gris, activos o no
 func _process(delta):
 	score = float($Score.text)
 	
@@ -33,10 +31,11 @@ func _process(delta):
 		$Slot03/Slot03.texture = load("res://Art/arma03_gris.png")
 		activo3 = false
 		
-	if float($Score.text)>=float($Label4.text):
+	if float($Score.text)>=float(500):
 		$Slot04/area_arma.texture = load("res://Art/area_arma.png")
 		activo4 = true
 	else:
 		$Slot04/area_arma.texture = load("res://Art/area_arma_no.png")
 		activo4 = false
 	pass
+

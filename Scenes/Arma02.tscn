@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Script/Arma02.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Bala.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Art/arma02.png" type="Texture" id=3]
 [ext_resource path="res://Script/arma_body.gd" type="Script" id=4]
+[ext_resource path="res://Sound/nuevo.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Sound/arma_morir.ogg" type="AudioStream" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -61,6 +63,24 @@ script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="arma_body"]
 shape = SubResource( 2 )
+
+[node name="Nuevo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+mix_target = 0
+bus = "Master"
+
+[node name="Morir" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+mix_target = 0
+bus = "Master"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

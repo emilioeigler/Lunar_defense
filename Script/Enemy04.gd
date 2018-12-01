@@ -3,8 +3,8 @@ extends Node2D
 export(PackedScene) var Bala
 export(PackedScene) var Coin
 
-export var speed =  0.2
-var vidas = 100
+export var speed =  0.1
+var vidas = 200
 var timer = 0
 var timer_bala = 0
 var vivo = true
@@ -15,15 +15,18 @@ var vida_arma = 0
 var vectorDirection
 var vectorPosition
 
+#para seguir el pathfollow2d
 onready var follow = get_node("Path2D/PathFollow2D")
 
 func _ready():
-	get_node("Path2D/PathFollow2D/ProgressBar").value = vidas
+	#barra de vida
+	get_node("Path2D/PathFollow2D/ProgressBar").value = vidas / 2
 	pass 
 
 
 func _process(delta):
-	get_node("Path2D/PathFollow2D/ProgressBar").value = vidas
+	#actualiza vida
+	get_node("Path2D/PathFollow2D/ProgressBar").value = vidas / 2
 	follow.offset += speed
 	if vidas <= 0:
 		timer += 1
@@ -43,7 +46,7 @@ func _process(delta):
 	if vida_arma <= 0:
 		lista_arma.pop_front()
 		
-		
+	#dispara en intervalos en direccion del arma
 	timer_bala+=1
 	if disparar > 0:
 		if arma_target:
@@ -61,8 +64,9 @@ func _process(delta):
 	pass
 	
 func vida():
-	vidas -= 0.05
-	
+	#descuenta vida
+	vidas -= 0.1
+	#cambia sprite a charco, oculta barra energia, elimina el kinematicbody, cantenemy - 1, crea una moneda
 	if vidas <= 0 and vivo:
 		vivo=false
 		z_index = 0
@@ -74,21 +78,20 @@ func vida():
 		get_node("../").cant_enemy -= 1
 		var coin_instance = Coin.instance()
 		coin_instance.position = get_node("Path2D/PathFollow2D/Sprite").global_position
-		coin_instance.valor = 10000
+		coin_instance.valor = 2000
 		get_parent().add_child(coin_instance)
 func _morir():
 	queue_free()
-
+#señal body entra en area
 func _on_AreaEnemy03_body_entered(body):
 	if body.is_in_group("arma"):
 		disparar += 1	
 		lista_arma.append(body)		
-	pass # Replace with function body.
 
 
+#señal body sale de area
 func _on_AreaEnemy03_body_exited(body):
 	if body.is_in_group("arma"):
 		disparar -= 1
 		var nodo = lista_arma.find(body)
 		lista_arma.remove(nodo)
-	pass # Replace with function body.

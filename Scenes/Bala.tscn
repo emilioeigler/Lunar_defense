@@ -9,7 +9,9 @@
 custom_solver_bias = 0.0
 radius = 4.29682
 
-[node name="Bala" type="KinematicBody2D"]
+[node name="Bala" type="KinematicBody2D" groups=[
+"bala",
+]]
 pause_mode = 1
 z_index = 1
 input_pickable = false
@@ -22,6 +24,7 @@ BULLET_VELOCITY = 300
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+one_way_collision = true
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
@@ -31,7 +34,7 @@ rect = Rect2( -10, -10, 20, 20 )
 
 [node name="shoot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
-volume_db = 0.0
+volume_db = -6.0
 pitch_scale = 1.0
 autoplay = false
 stream_paused = false

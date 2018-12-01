@@ -7,18 +7,24 @@ var vidas = 100
 var timer = 0
 var vivo = true
 
+#para seguir el pathfollow2d
 onready var follow = get_node("Path2D/PathFollow2D")
 
 func _ready():
+	#barra de vida
 	get_node("Path2D/PathFollow2D/ProgressBar").value = vidas
 	pass 
 
 
 func _process(delta):
+	#actualiza vida
 	get_node("Path2D/PathFollow2D/ProgressBar").value = vidas
 	follow.offset += speed
 	if vidas <= 0:
 		timer += 1
+	if timer == 1:
+		#sonido morir
+		$Morir.play()
 	if timer >= 500:
 		$Path2D/PathFollow2D/Sprite.modulate.a -= 0.005
 	if timer == 700:
@@ -26,8 +32,9 @@ func _process(delta):
 	pass
 	
 func vida():
+	#descuenta vida
 	vidas -= 1
-	
+	#cambia sprite a charco, oculta barra energia, elimina el kinematicbody, cantenemy - 1, crea una moneda
 	if vidas <= 0 and vivo:
 		vivo=false
 		z_index = 0

@@ -8,19 +8,22 @@ var pos = Vector2()
 var motion = Vector2(1, 0)
 func _ready():
 	position = pos
-	$shoot.play(1)
+	$shoot.play()
 
 func _physics_process(delta):
-
+	
 	motion = dir.normalized() * BULLET_VELOCITY * delta
 	var collision = move_and_collide(motion)
-	get_collision_exceptions()
+	#si colisiona con el grupo enemy o enemy2
 	if (collision):
 		if (collision.collider.is_in_group("enemy")):
 			collision.collider.hit()
-		
-		get_parent().remove_child(self)
-		
+			get_parent().remove_child(self)
+		if (collision.collider.is_in_group("enemy2")):
+			collision.collider.hit()
+			get_parent().remove_child(self)
 
+#si sale de la pantalla liberar
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
+

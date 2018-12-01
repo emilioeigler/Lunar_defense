@@ -65,4 +65,6 @@ func on_click():
 			habilitada = true
 			get_node("../GUI/Score").text =str( float(get_node("../GUI/Score").text) - 500)
 			ocupada = false
+			$Sound.play()
+	
 	

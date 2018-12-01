@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/arma_morir.ogg-e771fc6ec825fd59088499f1da0e619a.oggstr"
+
+[deps]
+
+source_file="res://Sound/arma_morir.ogg"
+dest_files=[ "res://.import/arma_morir.ogg-e771fc6ec825fd59088499f1da0e619a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

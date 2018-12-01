@@ -6,20 +6,25 @@ var lista_enemy = []
 var area
 var cant_enemy
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass 
-
 func _physics_process(delta):
 	timer +=1
+	#anima los sprites
 	$AnimatedSprite.playing = true
+	#mide lista de enemigos
 	cant_enemy = lista_enemy.size()
 	if timer==60:
-		
+		#si hay algo en la lista
 		if cant_enemy > -1 :
+			#sonido explosion
+			$Explosion.play()
+			#quita vida a todos los de la lista dependiendo del grupo
 			for i in range (cant_enemy):
-				lista_enemy[i].get_node("../../..").vidas -= 50
+				if lista_enemy[i].get_node("../../..").is_in_group("enemy"):
+					lista_enemy[i].get_node("../../..").vidas -= 45
+					lista_enemy[i].get_node("../../..").vida()
+				if lista_enemy[i].get_node("../../..").is_in_group("enemy2"):
+					lista_enemy[i].get_node("../../..").vidas -= 20
+					lista_enemy[i].get_node("../../..").vida()
 	if timer >100:
 		morir()
 func morir():
@@ -29,4 +34,11 @@ func morir():
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("enemy"):
 		lista_enemy.append(body)		
-	pass 
+
+
+func _on_Area2D_body_exited(body):
+	if body.is_in_group("enemy"):
+		var nodo = lista_enemy.find(body)
+		lista_enemy.remove(nodo)
+		
+

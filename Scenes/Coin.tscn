@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Script/Coin.gd" type="Script" id=1]
 [ext_resource path="res://Script/Coin_Area2D.gd" type="Script" id=2]
 [ext_resource path="res://Art/coin.png" type="Texture" id=3]
+[ext_resource path="res://Sound/coin.ogg" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -39,5 +40,14 @@ playback_speed = 1.0
 playback/active = false
 playback/repeat = false
 playback/speed = 1.0
+
+[node name="Coin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -3.0
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+mix_target = 0
+bus = "Master"
 
 [connection signal="tween_completed" from="Coin_Area2D/Tween" to="." method="_on_Tween_tween_completed"]

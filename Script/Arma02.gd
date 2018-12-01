@@ -12,9 +12,10 @@ var lista_enemy = []
 var timer_bala = 0
 var area
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
-	pass # Replace with function body.
+	$Nuevo.play()
+	
 
 func _physics_process(delta):
 	if vidas <= 0:
@@ -22,6 +23,8 @@ func _physics_process(delta):
 		disparar = 0
 		$arma_body/CollisionShape2D.disabled = true
 		$arma02.texture = load("res://Art/arma02_gris.png")
+	if timer == 1:
+		$Morir.play()
 	if timer >= 500:
 		$arma02.modulate.a -= 0.005
 	if timer == 700:
@@ -61,7 +64,7 @@ func _physics_process(delta):
 	pass
 
 func vida():
-	vidas -= 5
+	vidas -= 3
 	
 func morir():
 	queue_free()
@@ -69,12 +72,10 @@ func morir():
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("enemy"):
 		disparar += 1	
-		lista_enemy.append(body)		
-	pass 
+		lista_enemy.append(body)
 
 func _on_Area2D_body_exited(body):
 	if body.is_in_group("enemy"):
 		disparar -= 1
 		var nodo = lista_enemy.find(body)
 		lista_enemy.remove(nodo)
-	pass 

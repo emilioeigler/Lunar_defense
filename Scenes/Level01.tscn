@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Script/Level01.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Message.tscn" type="PackedScene" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://Art/waves.png" type="Texture" id=14]
 [ext_resource path="res://Art/cara.png" type="Texture" id=15]
 [ext_resource path="res://Script/ovni.gd" type="Script" id=16]
+[ext_resource path="res://Scenes/Sound_on_off.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Sound/music.ogg" type="AudioStream" id=18]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -173,6 +175,7 @@ lines_skipped = 0
 max_lines_visible = -1
 
 [node name="waves" type="Sprite" parent="."]
+editor/display_folded = true
 position = Vector2( 148.197, 537.817 )
 scale = Vector2( 0.520606, 0.520606 )
 texture = ExtResource( 14 )
@@ -212,5 +215,17 @@ position = Vector2( -202.101, -9.6803 )
 scale = Vector2( 0.343535, 0.343535 )
 texture = ExtResource( 15 )
 script = ExtResource( 16 )
+
+[node name="Sound_on_off" parent="." instance=ExtResource( 17 )]
+position = Vector2( 978.557, 523.253 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+mix_target = 0
+bus = "Master"
 
 [connection signal="body_entered" from="Adentro_base" to="Adentro_base" method="_on_Adentro_base_body_entered"]

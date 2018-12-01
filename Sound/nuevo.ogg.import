@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/nuevo.ogg-5fb989c0f55fdd49ebefb3eafd03391a.oggstr"
+
+[deps]
+
+source_file="res://Sound/nuevo.ogg"
+dest_files=[ "res://.import/nuevo.ogg-5fb989c0f55fdd49ebefb3eafd03391a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

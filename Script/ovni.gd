@@ -1,5 +1,5 @@
 extends Sprite
-
+#acomoda la posicion de la cara del alien segun la oleada
 func _process(delta):
 	if get_node("../../").oleada_numero == 0:
 		visible = false

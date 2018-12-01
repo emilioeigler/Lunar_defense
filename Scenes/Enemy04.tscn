@@ -53,7 +53,7 @@ radius = 17.7468
 height = 52.962
 
 [node name="Enemy04" type="Node2D" groups=[
-"enemy",
+"enemy2",
 ]]
 pause_mode = 1
 position = Vector2( -1.2605, 0 )
@@ -61,7 +61,7 @@ z_index = 1
 script = ExtResource( 1 )
 Bala = ExtResource( 2 )
 Coin = ExtResource( 3 )
-speed = 0.2
+speed = 0.1
 
 [node name="Path2D" type="Path2D" parent="."]
 self_modulate = Color( 0.5, 0.6, 1, 0.7 )
