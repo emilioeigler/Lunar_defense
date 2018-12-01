@@ -23,19 +23,23 @@ radius = 36.6306
 custom_solver_bias = 0.0
 radius = 19.5045
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" index="0"]
+
 script = ExtResource( 1 )
 
-[node name="menu" type="Sprite" parent="."]
+[node name="menu" type="Sprite" parent="." index="0"]
+
 position = Vector2( 512, 300 )
 texture = ExtResource( 2 )
 
-[node name="alien_ship" type="Sprite" parent="."]
+[node name="alien_ship" type="Sprite" parent="." index="1"]
+
 position = Vector2( 302.934, 230.328 )
 texture = ExtResource( 3 )
 script = ExtResource( 4 )
 
-[node name="Play" type="Area2D" parent="."]
+[node name="Play" type="Area2D" parent="." index="2"]
+
 position = Vector2( 737.089, 503.452 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -46,32 +50,35 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 5 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Play"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Play" index="0"]
+
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="Play"]
+[node name="Sprite" type="Sprite" parent="Play" index="1"]
+
 position = Vector2( 0.922119, 0.614716 )
 texture = ExtResource( 6 )
 
-[node name="Click" type="AudioStreamPlayer" parent="Play"]
+[node name="Click" type="AudioStreamPlayer" parent="Play" index="2"]
+
 stream = ExtResource( 7 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
-stream_paused = false
 mix_target = 0
 bus = "Master"
 
-[node name="Ship" type="AudioStreamPlayer" parent="Play"]
+[node name="Ship" type="AudioStreamPlayer" parent="Play" index="3"]
+
 stream = ExtResource( 8 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
-stream_paused = false
 mix_target = 0
 bus = "Master"
 
-[node name="Salir" type="Area2D" parent="."]
+[node name="Salir" type="Area2D" parent="." index="3"]
+
 position = Vector2( 958.263, 551.177 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -82,22 +89,26 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 9 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Salir"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Salir" index="0"]
+
 shape = SubResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="Salir"]
+[node name="Sprite" type="Sprite" parent="Salir" index="1"]
+
 scale = Vector2( 0.384196, 0.384196 )
 texture = ExtResource( 10 )
 
-[node name="Sound_on_off" parent="." instance=ExtResource( 11 )]
-position = Vector2( 911.582, 551.017 )
+[node name="Sound_on_off" parent="." index="4" instance=ExtResource( 11 )]
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
+position = Vector2( 910.22, 551.017 )
+
+[node name="Music" type="AudioStreamPlayer" parent="." index="5"]
+
 stream = ExtResource( 12 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
-stream_paused = false
 mix_target = 0
 bus = "Master"
+
 

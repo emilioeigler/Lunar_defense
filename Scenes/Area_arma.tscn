@@ -1,15 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Script/Area_arma.gd" type="Script" id=1]
-[ext_resource path="res://Art/area_arma.png" type="Texture" id=2]
-[ext_resource path="res://Sound/nuevo.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Scenes/Arma01.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Arma02.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Arma03.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Art/area_arma.png" type="Texture" id=5]
+[ext_resource path="res://Sound/nuevo.ogg" type="AudioStream" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 24.4803
 
-[node name="Area_arma" type="Area2D"]
+[node name="Area_arma" type="Area2D" index="0"]
+
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -18,24 +22,30 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
+scene_arma = ExtResource( 2 )
+scene_arma2 = ExtResource( 3 )
+scene_arma3 = ExtResource( 4 )
 habilitada = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="." index="1"]
+
 position = Vector2( -0.346164, 0.0690838 )
 scale = Vector2( 0.348673, 0.345866 )
-texture = ExtResource( 2 )
+texture = ExtResource( 5 )
 
-[node name="Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 3 )
+[node name="Sound" type="AudioStreamPlayer2D" parent="." index="2"]
+
+stream = ExtResource( 6 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
-stream_paused = false
 max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
+
 
