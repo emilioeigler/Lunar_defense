@@ -1,8 +1,8 @@
 extends Area2D
+export(PackedScene) var scene_arma
+export(PackedScene) var scene_arma2
+export(PackedScene) var scene_arma3
 
-var scene_arma = load("res://Scenes/Arma01.tscn")
-var scene_arma2 = load("res://Scenes/Arma02.tscn")
-var scene_arma3 = load("res://Scenes/Arma03.tscn")
 var arma
 var arma2
 var arma3

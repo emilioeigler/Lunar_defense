@@ -62,7 +62,7 @@ func _physics_process(delta):
 					var bala_instance = Bala.instance()
 					vectorPosition = position
 					bala_instance.pos = vectorPosition
-					bala_instance.get_collision_exceptions()
+					#bala_instance.get_collision_exceptions()
 					vectorDirection = -1 * (global_position - enemy_target.global_position)
 					bala_instance.dir = vectorDirection
 					get_parent().add_child(bala_instance)
